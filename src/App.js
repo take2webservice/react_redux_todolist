@@ -1,32 +1,23 @@
 import React from 'react'
+import Input from './comonents/Input'
+import TodoList from './comonents/TodoList';
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       todos: [
-        'hoge',
-        'fuga',
-        'boke'
-      ],
-      input: ''
+      ]
     }
   }
 
-  onInputChange = (e) => {
-    this.setState({
-      input: e.target.value,
-    });
-  }
-
-  addToDo = (e) => {
+  addToDo = (input) => {
     this.setState(() => {
       return {
         todos: [
           ...this.state.todos,
-          this.state.input,
-        ],
-        input: ''
+          input,
+        ]
       }
     });
   }
@@ -35,24 +26,8 @@ class App extends React.Component{
     return (
       <React.Fragment>
         <h1>TODO LIST</h1>
-        <div>
-          <input
-            onChange={this.onInputChange}
-            value={this.state.input}
-          />
-          <button className="add-todo" onClick={this.addToDo}>
-            Add Todo
-          </button>
-        </div>
-        <ul className="todo-list">
-          {this.state.todos.map(e => {
-            return <li className="todo-item">
-                     <span>
-                       {e}
-                     </span>
-                   </li>
-          })}
-        </ul>
+        <Input addToDo={this.addToDo}/>
+        <TodoList todos={this.state.todos}/>
       </React.Fragment>
     );
   }
