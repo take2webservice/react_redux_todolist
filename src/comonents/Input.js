@@ -1,4 +1,7 @@
 import React from 'react'
+import store from './redux/store';
+
+let todos
 
 export default class Input extends React.Component {
     constructor(props) {
@@ -13,13 +16,13 @@ export default class Input extends React.Component {
           input: e.target.value,
         });
     }
-
     addToDo = (e) => {
-        this.props.addToDo(this.state.input);
+        store.dispatch({type: 'todo/add', payload: {input: this.state.input}});
         this.setState({
             input: '',
         });
-    } 
+    }
+
     render(){
         return (
             <div>
