@@ -1,6 +1,8 @@
 import React from 'react';
 import Input from './comonents/Input';
 import TodoList from './comonents/TodoList';
+import { Provider } from 'react-redux';
+import store from './comonents/redux/store';
 
 class App extends React.Component{
   constructor(props){
@@ -9,11 +11,11 @@ class App extends React.Component{
 
   render(){
     return (
-      <React.Fragment>
+      <Provider store={store}>
         <h1>TODO LIST</h1>
         <Input/>
         <TodoList />
-      </React.Fragment>
+      </Provider>
     );
   }
 }

@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
+import { ADD_TODO } from './actionTypes';
 
 const initialState = {
     todos: []
 }
 
 function todoReducer(oldState=initialState, action) {
+    console.log(action);
     switch (action.type) {
-        case 'todo/add': {
-            const input = action.payload.input;
+        case ADD_TODO: {
+            const input = action.palyoad.input;
             return {
                 todos: [
                     input,
