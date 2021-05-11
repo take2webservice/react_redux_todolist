@@ -1,8 +1,8 @@
 import React from 'react';
-import Input from './comonents/Input';
-import TodoList from './comonents/TodoList';
+import Input from './components/Input';
+import TodoList from './components/TodoList';
 import { Provider } from 'react-redux';
-import store from './comonents/redux/store';
+import store from './components/redux/store';
 
 class App extends React.Component{
   constructor(props){
